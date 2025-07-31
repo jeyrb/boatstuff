@@ -1,2 +1,3 @@
 # boatstuff
-Boat stuff info
+
+Miscellaneous info on boats and things for boats
