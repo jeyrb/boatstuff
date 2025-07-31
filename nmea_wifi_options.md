@@ -1,3 +1,7 @@
+layout: page
+title: "NMEA WiFi Integration Options"
+permalink: /nmea-wifi-opts
+
 # NMEA Wifi Options
 
 | Brand | Model | NMEA 0183 Port | LEN | Comments |
