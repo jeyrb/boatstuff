@@ -35,5 +35,5 @@ dev = [
     "mkdocs>=1.6.1",
     "mkdocs-marimo>=0.2.1",
     "mkdocs-material>=9.6.15",
-
+    "mkdocs-genfiles>=0.4.0",
 ]
