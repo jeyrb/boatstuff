@@ -1,0 +1,52 @@
+---
+name: Github Pages Deployment
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Get changed files
+        id: changed-files
+        uses: tj-actions/changed-files@v46
+        with:
+          files_yaml: |
+            requirements:
+              - "pyproject.toml"
+              - "uv.lock"
+              - "mkdocs.yml"
+            docs:
+              - "docs/**"
+              - "mkdocs.yml"
+            data:
+              - "data/**"
+
+      - name: Set up uv
+        if: steps.changed-files.outputs.requirements_any_changed == 'true' 
+        uses: astral-sh/setup-uv@v5
+        with:
+          version: "latest"
+
+      - name: Build docs
+        if: steps.changed-files.outputs.docs_any_changed == 'true' || steps.changed-files.outputs.data_any_changed == 'true'
+        run: |
+          uv venv
+          uv pip install mkdocs-material mkdocs-marimo
+          uv run mkdocs build
+
+      - uses: peaceiris/actions-gh-pages@v4
+        if: steps.changed-files.outputs.docs_any_changed == 'true' || steps.changed-files.outputs.data_any_changed == 'true'
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: site

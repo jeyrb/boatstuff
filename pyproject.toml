@@ -1,0 +1,39 @@
+
+[project]
+name = "BoatStuff"
+version = "0.1.0"
+authors = [
+    { name = "Jey Burrows", email = "jrb@jeymail.net" }
+]
+description = "Boat stuff data"
+readme = "README.md"
+requires-python = ">=3.13"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: CC0 1.0 Universal (CC0 1.0) Public Domain Dedication",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Documentation",
+]
+dependencies = [
+    'loguru>=0.1.0',
+    'numbers-parser>=0.1.0',
+    'pymdown-extensions'
+]
+
+[project.urls]
+"Homepage" = "https://github.com/jeyrb/boatstuff"
+"Bug Tracker" = "https://github.com/jeyrb/boatstuff/issues"
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+
+[dependency-groups]
+dev = [
+    "mkdocs>=1.6.1",
+    "mkdocs-marimo>=0.2.1",
+    "mkdocs-material>=9.6.15",
+
+]
