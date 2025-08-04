@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@observablehq/framework": "^1.13.3",
-    "sqlite":"^5.1.1",
     "d3-dsv": "^3.0.1",
     "d3-time-format": "^4.1.0"
   },

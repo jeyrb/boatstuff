@@ -5,6 +5,9 @@ toc: false
 
 # NMEA to Wifi Integration
 
+```js
+import SQLite from "npm:@observablehq/sqlite";
+```
 
 ```js
 const collection = FileAttachment("data/nmea_wifi.zip").zip();
