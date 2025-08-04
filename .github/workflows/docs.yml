@@ -33,7 +33,6 @@ jobs:
               - "data/**"
 
       - name: Set up uv
-        if: steps.changed-files.outputs.requirements_any_changed == 'true' 
         uses: astral-sh/setup-uv@v5
         with:
           version: "latest"
