@@ -1,8 +1,9 @@
 .DS_Store
 .venv/
-older_attempts/
 site/
 **/__cache__/
 dist/
 **/__pycache__/
 node_modules/
+src/.observablehq/
+
