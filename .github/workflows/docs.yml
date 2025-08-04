@@ -45,7 +45,6 @@ jobs:
           uv run mkdocs build
 
       - uses: peaceiris/actions-gh-pages@v4
-        if: steps.changed-files.outputs.build-docs_any_changed == 'true' || steps.changed-files.outputs.data_any_changed == 'true'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: site
