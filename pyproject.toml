@@ -36,4 +36,6 @@ dev = [
     "mkdocs-marimo>=0.2.1",
     "mkdocs-material>=9.6.15",
     "mkdocs-gen-files>=0.4.0",
+    "mkdocs-material-extensions>=1.0.0",
+    "pymdown-extensions>=10.0.0",
 ]

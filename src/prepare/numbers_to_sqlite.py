@@ -10,7 +10,7 @@ def sanitize_name(name):
     return "".join(c if c.isalnum() or c == "_" else "_" for c in name)
 
 
-def bulk_convert(src_path: Path, dest_path: Path) -> int:
+def bulk_convert(src_path: Path, dest_path: Path, force=False) -> int:
     logger.info(
         "Starting conversion of Apple Numbers workbooks to SQLite databases.")
 
@@ -32,6 +32,9 @@ def bulk_convert(src_path: Path, dest_path: Path) -> int:
                                  workbook_path.parts[-1].replace(".numbers", ""))
             dest_db = Path(
                 dest_sub_path, f"{sanitize_name(sheet.name)}.sqlite")
+            if dest_db.exists() and not force:
+                logger.info(f"Database {dest_db} already exists. Skipping.")
+                continue
             dest_sub_path.mkdir(parents=True, exist_ok=True)
 
             conn = sqlite3.connect(dest_db)
@@ -69,13 +72,15 @@ parser.add_argument(
     "--src_path", help="Path to the .numbers directory", default="src/data")
 parser.add_argument(
     "--dest_path", help="Path to the output directory for SQLite files", default="data")
+parser.add_argument("--force", action="store_true",
+                    help="Force conversion even if the destination already exists")
 args = parser.parse_args()
 
 try:
     src_path = Path(args.src_path)
     dest_path = Path(args.dest_path)
 
-    bulk_convert(src_path, dest_path)
+    bulk_convert(src_path, dest_path, force=force)
 
 except Exception as e:
     logger.error(f"Conversion failed with error: {e}")
