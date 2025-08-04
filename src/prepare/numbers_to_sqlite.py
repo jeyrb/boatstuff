@@ -80,7 +80,7 @@ try:
     src_path = Path(args.src_path)
     dest_path = Path(args.dest_path)
 
-    bulk_convert(src_path, dest_path, force=force)
+    bulk_convert(src_path, dest_path, force=args.force)
 
 except Exception as e:
     logger.error(f"Conversion failed with error: {e}")
