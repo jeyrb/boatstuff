@@ -39,14 +39,14 @@ jobs:
           version: "latest"
 
       - name: Build docs
-        if: steps.changed-files.outputs.docs_any_changed == 'true' || steps.changed-files.outputs.data_any_changed == 'true'
+        id: build-docs
         run: |
           uv venv
           uv pip install mkdocs-material mkdocs-marimo
           uv run mkdocs build
 
       - uses: peaceiris/actions-gh-pages@v4
-        if: steps.changed-files.outputs.docs_any_changed == 'true' || steps.changed-files.outputs.data_any_changed == 'true'
+        if: steps.changed-files.outputs.build-docs_any_changed == 'true' || steps.changed-files.outputs.data_any_changed == 'true'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: site
