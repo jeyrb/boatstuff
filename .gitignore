@@ -3,3 +3,7 @@
 older_attempts/
 site/
 **/__cache__/
+dist/
+node_modules/
+src/.observablehq/
+**/__pycache__/
