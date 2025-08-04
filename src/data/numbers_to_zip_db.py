@@ -28,7 +28,8 @@ def convert(numbers_location):
             logger.warning(f"No sheets found in {numbers_location}. Skipping.")
         else:
             for sheet in doc.sheets:
-                db_name = f"{sanitize_name(sheet.name)}.db"
+                sheet_name = sanitize_name(sheet.name)
+                db_name = f"{sheet_name}.db"
   
                 conn = sqlite3.connect(":memory:")
                 cur = conn.cursor()
@@ -37,7 +38,10 @@ def convert(numbers_location):
                     data = list(table.rows(values_only=True))
                     if not data:
                         continue
-                    table_name = sanitize_name(table.name)
+                    if len(sheet.tables)>1 or table.name != 'Table 1':
+                        table_name = sanitize_name(table.name)
+                    else:
+                        table_name = sheet_name
                     headers = [sanitize_name(str(h)) for h in data[0]]
                     cur.execute(f"DROP TABLE IF EXISTS {table_name}")
                     columns = ", ".join(f'"{h}" TEXT' for h in headers)

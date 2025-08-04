@@ -14,11 +14,11 @@ const collection = FileAttachment("data/nmea_wifi.zip").zip();
 ```
 
 ```js
-const options = collection.file("Sheet_1.db").sqlite();
+const options = collection.file("Products.db").sqlite();
 ```
 
 ```js
-const products = options.sql`SELECT * FROM Table_1`;
+const products = options.sql`SELECT * FROM Products`;
 await products;
 ```
 
