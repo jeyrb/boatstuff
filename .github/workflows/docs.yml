@@ -37,13 +37,9 @@ jobs:
         with:
           version: "latest"
 
-      - name: Build docs
+      - name: Build and deploy docs
         id: build-docs
         run: |
           uv venv
           uv pip install mkdocs-material mkdocs-marimo mkdocs-gen-files pymdown-extensions
-          uv run mkdocs build
-
-      - name: Deploy docs
-        id: gh-pages-deploy
-        run: mkdocs gh-deploy
+          uv run mkdocs gh-deploy
