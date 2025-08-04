@@ -44,7 +44,6 @@ jobs:
           uv pip install mkdocs-material mkdocs-marimo mkdocs-gen-files pymdown-extensions
           uv run mkdocs build
 
-      - uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: site
+      - name: Deploy docs
+        id: gh-pages-deploy
+        run: mkdocs gh-deploy
