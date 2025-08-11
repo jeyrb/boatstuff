@@ -28,5 +28,5 @@ await products;
 const search = view(Inputs.search(products, {placeholder: "Search products ..."}));
 ```
 ```js
-Inputs.table(search,{})
+Inputs.table(search,{rows:20})
 ```
