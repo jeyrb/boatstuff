@@ -28,6 +28,7 @@ def convert(numbers_location):
             logger.warning(f"No sheets found in {numbers_location}. Skipping.")
         else:
             for sheet in doc.sheets:
+                logger.info(f"Converting sheet {sheet.name}")
                 sheet_name = sanitize_name(sheet.name)
                 db_name = f"{sheet_name}.db"
   
@@ -35,6 +36,7 @@ def convert(numbers_location):
                 cur = conn.cursor()
                 for table in sheet.tables:
                 
+                    logger.info(f"Converting table {table.name} in sheet {sheet.name}")
                     data = list(table.rows(values_only=True))
                     if not data:
                         continue
