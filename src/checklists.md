@@ -18,7 +18,7 @@ const options = collection.file("Laying_Up.db").sqlite();
 ```
 
 ```js
-const layingup = options.sql`SELECT * FROM Laying_Up`;
+const layingup = options.sql`SELECT * FROM Laying_Up_Checklist`;
 await layingup;
 ```
 
