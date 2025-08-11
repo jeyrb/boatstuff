@@ -14,9 +14,10 @@ const collection = FileAttachment("data/checklists.zip").zip();
 ```
 
 ## Arriving at Boat
+
 ```js
 const arriving_sheet = collection.file("Arriving.db").sqlite();
-await arriving sheet;
+await arriving_sheet;
 ```
 
 ```js
