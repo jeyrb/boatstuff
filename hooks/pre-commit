@@ -87,7 +87,7 @@ sync_directory() {
     # Create destination directory
     mkdir -p "$(dirname "$destination")"
     
-    zip_output=$(zip -r --filesync --system-hidden "$destination" "$source"  2>&1)
+    zip_output=$(zip -r --filesync "$destination" "$source"  2>&1)
     local zip_exit=$?
     
     if [[ $zip_exit -eq 0 ]]; then
