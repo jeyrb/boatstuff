@@ -1,3 +1,3 @@
 from numbers_to_zip_db import convert
 
-convert('src/numbers/NMEA_Wifi_Options.numbers')
+convert('src/numbers/nmea_wifi_options.numbers')
