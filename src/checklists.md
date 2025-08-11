@@ -28,6 +28,9 @@ Inputs.table(arriving,{rows:20})
 ```js
 const prep = options.sql`SELECT * FROM Preparing_to_Sail_Checklist`;
 await prep;
+```
+
+```js
 Inputs.table(prep,{rows:20})
 ```
 
@@ -35,6 +38,9 @@ Inputs.table(prep,{rows:20})
 ```js
 const after = options.sql`SELECT * FROM After_Sailing_Checklist`;
 await after;
+```
+
+```js
 Inputs.table(after,{rows:20})
 ```
 
@@ -42,6 +48,9 @@ Inputs.table(after,{rows:20})
 ```js
 const leaving = options.sql`SELECT * FROM Leaving_Boat_Checklist`;
 await leaving;
+```
+
+```js
 Inputs.table(leaving,{rows:20})
 ```
 
@@ -50,6 +59,9 @@ Inputs.table(leaving,{rows:20})
 ```js
 const layingup = options.sql`SELECT * FROM Laying_Up_Checklist`;
 await layingup;
+```
+
+```js
 Inputs.table(layingup,{rows:20})
 ```
 
@@ -58,5 +70,8 @@ Inputs.table(layingup,{rows:20})
 ```js
 const storm = options.sql`SELECT * FROM Storm_Checklist___in_addition_to_Leaving_Boat_Checklist__`;
 await storm;
+```
+
+```js
 Inputs.table(layingup,{rows:20})
 ```
