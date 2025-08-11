@@ -19,7 +19,8 @@ const collection = FileAttachment("data/checklists.zip").zip();
 
 ## Arriving at Boat
 ```js
-const arriving_sheet = collection.file("Arriving.db ").sqlite();
+const arriving_sheet = collection.file("Arriving.db").sqlite();
+await arriving sheet;
 const arriving = arriving_sheet.sql`SELECT * FROM Arriving_on_Boat_Checklist`;
 await arriving;
 ```
@@ -31,6 +32,7 @@ Inputs.table(arriving,{rows:20})
 ## Preparing to Sail
 ```js
 const prep_sheet = collection.file("Preparing_to_Sail.db").sqlite();
+await prep_sheet;
 const prep = prep_sheet.sql`SELECT * FROM Preparing_to_Sail_Checklist`;
 await prep;
 ```
@@ -42,6 +44,7 @@ Inputs.table(prep,{rows:20})
 ## After Sailing
 ```js
 const after_sheet = collection.file("After_Sailing.db").sqlite();
+await after_sheet;
 const after = after_sheet.sql`SELECT * FROM After_Sailing_Checklist`;
 await after;
 ```
@@ -69,6 +72,7 @@ Inputs.table(leaving,{rows:20})
 
 ```js
 const layingup_sheet = collection.file("Laying_Up.db").sqlite();
+await layingup_sheet;
 const layingup = layingup_sheet.sql`SELECT * FROM Laying_Up_Checklist`;
 await layingup;
 ```
@@ -82,6 +86,9 @@ Inputs.table(layingup,{rows:20})
 ```js
 const storm_sheet = collection.file("Storm.db").sqlite();
 await storm_sheet;
+```
+
+```js
 const storm = storm_sheet.sql`SELECT * FROM Storm_Checklist___in_addition_to_Leaving_Boat_Checklist__`;
 await storm;
 ```
