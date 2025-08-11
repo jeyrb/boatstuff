@@ -52,7 +52,8 @@ Inputs.table(after,{rows:20})
 
 ## Leaving Boat
 ```js
-const leaving_sheet = collection.file("Leaving_Boat.db ").sqlite();
+const leaving_sheet = collection.file("Leaving_Boat.db").sqlite();
+await leaving_sheet;
 const leaving = leaving_sheet.sql`SELECT * FROM Leaving_Boat_Checklist`;
 await leaving;
 ```
@@ -77,6 +78,7 @@ Inputs.table(layingup,{rows:20})
 
 ```js
 const storm_sheet = collection.file("Storm.db").sqlite();
+await storm_sheet;
 const storm = storm_sheet.sql`SELECT * FROM Storm_Checklist___in_addition_to_Leaving_Boat_Checklist__`;
 await storm;
 ```
