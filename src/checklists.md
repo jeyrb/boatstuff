@@ -11,17 +11,16 @@ import SQLite from "npm:@observablehq/sqlite";
 
 ```js
 const collection = FileAttachment("data/checklists.zip").zip();
+await collection;
+master_list = collection.file("Master_List.db");
+await master_list;
 ```
 
 ## Arriving at Boat
 
-```js
-const arriving_sheet = collection.file("Arriving.db").sqlite();
-await arriving_sheet;
-```
 
 ```js
-const arriving = arriving_sheet.sql`SELECT * FROM Arriving_on_Boat_Checklist`;
+const arriving = master_list.sql`SELECT * FROM Checklist WHERE Arriving_On_Boat = 'Y'`;
 await arriving;
 ```
 
@@ -30,13 +29,9 @@ Inputs.table(arriving,{rows:20})
 ```
 
 ## Preparing to Sail
-```js
-const prep_sheet = collection.file("Preparing_to_Sail.db").sqlite();
-await prep_sheet;
-```
 
 ```js
-const prep = prep_sheet.sql`SELECT * FROM Preparing_to_Sail_Checklist`;
+const prep = master_list.sql`SELECT * FROM Checklist WHERE Preparing_to_Sail = 'Y'`;
 await prep;
 ```
 
@@ -45,13 +40,9 @@ Inputs.table(prep,{rows:20})
 ```
 
 ## After Sailing
-```js
-const after_sheet = collection.file("After_Sailing.db").sqlite();
-await after_sheet;
-```
 
 ```js
-const after = after_sheet.sql`SELECT * FROM After_Sailing_Checklist`;
+const after =  master_list.sql`SELECT * FROM Checklist WHERE After_Sailing = 'Y'`;
 await after;
 ```
 
@@ -60,13 +51,10 @@ Inputs.table(after,{rows:20})
 ```
 
 ## Leaving Boat
-```js
-const leaving_sheet = collection.file("Leaving_Boat.db").sqlite();
-await leaving_sheet;
-```
+
 
 ```js
-const leaving = leaving_sheet.sql`SELECT * FROM Leaving_Boat_Checklist`;
+const leaving = master_list.sql`SELECT * FROM Checklist WHERE Leaving_Boat = 'Y'`;
 await leaving;
 ```
 
@@ -76,13 +64,9 @@ Inputs.table(leaving,{rows:20})
 
 ## Laying Up
 
-```js
-const layingup_sheet = collection.file("Laying_Up.db").sqlite();
-await layingup_sheet;
-```
 
 ```js
-const layingup = layingup_sheet.sql`SELECT * FROM Laying_Up_Checklist`;
+const layingup = master_list.sql`SELECT * FROM Checklist WHERE Laying_Up = 'Y'`;
 await layingup;
 ```
 
@@ -93,12 +77,7 @@ Inputs.table(layingup,{rows:20})
 ## Storm Prep
 
 ```js
-const storm_sheet = collection.file("Storm.db").sqlite();
-await storm_sheet;
-```
-
-```js
-const storm = storm_sheet.sql`SELECT * FROM Storm_Checklist___in_addition_to_Leaving_Boat_Checklist__`;
+const storm = master_list.sql`SELECT * FROM Checklist WHERE Storm_Prep___Marina = 'Y'`;
 await storm;
 ```
 
