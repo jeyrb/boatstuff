@@ -54,6 +54,9 @@ Inputs.table(after,{rows:20})
 ```js
 const leaving_sheet = collection.file("Leaving_Boat.db").sqlite();
 await leaving_sheet;
+```
+
+```js
 const leaving = leaving_sheet.sql`SELECT * FROM Leaving_Boat_Checklist`;
 await leaving;
 ```
