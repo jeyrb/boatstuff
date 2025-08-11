@@ -13,14 +13,13 @@ import SQLite from "npm:@observablehq/sqlite";
 const collection = FileAttachment("data/checklists.zip").zip();
 ```
 
-```js
-
-```
-
 ## Arriving at Boat
 ```js
 const arriving_sheet = collection.file("Arriving.db").sqlite();
 await arriving sheet;
+```
+
+```js
 const arriving = arriving_sheet.sql`SELECT * FROM Arriving_on_Boat_Checklist`;
 await arriving;
 ```
@@ -33,6 +32,9 @@ Inputs.table(arriving,{rows:20})
 ```js
 const prep_sheet = collection.file("Preparing_to_Sail.db").sqlite();
 await prep_sheet;
+```
+
+```js
 const prep = prep_sheet.sql`SELECT * FROM Preparing_to_Sail_Checklist`;
 await prep;
 ```
@@ -45,6 +47,9 @@ Inputs.table(prep,{rows:20})
 ```js
 const after_sheet = collection.file("After_Sailing.db").sqlite();
 await after_sheet;
+```
+
+```js
 const after = after_sheet.sql`SELECT * FROM After_Sailing_Checklist`;
 await after;
 ```
@@ -73,6 +78,9 @@ Inputs.table(leaving,{rows:20})
 ```js
 const layingup_sheet = collection.file("Laying_Up.db").sqlite();
 await layingup_sheet;
+```
+
+```js
 const layingup = layingup_sheet.sql`SELECT * FROM Laying_Up_Checklist`;
 await layingup;
 ```
