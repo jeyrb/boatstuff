@@ -1,3 +1,3 @@
 /Users/jey/Documents/Boat/Boat Checklists.numbers:src/numbers/checklists.numbers
-/Users/jey/Documents/Research/NMEA_Wifi_Options.numbers:src/numbers/nmea_wifi_options.numbers
+/Users/jey/Documents/Boat/Research/NMEA_Wifi_Options.numbers:src/numbers/nmea_wifi_options.numbers
 
