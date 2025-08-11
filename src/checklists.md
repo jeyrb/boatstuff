@@ -12,7 +12,7 @@ import SQLite from "npm:@observablehq/sqlite";
 ```js
 const collection = FileAttachment("data/checklists.zip").zip();
 await collection;
-master_list = collection.file("Master_List.db");
+const master_list = collection.file("Master_List.db");
 await master_list;
 ```
 
